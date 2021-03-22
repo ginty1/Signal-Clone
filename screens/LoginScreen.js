@@ -6,6 +6,7 @@ import {StatusBar}from 'expo-status-bar'
 import {auth}from '../firebase'
 
 
+
 const LoginScreen = ({navigation}) => {
      const [email,setEmail]=useState('');
      const [password,setPassword]=useState('');
@@ -24,7 +25,9 @@ const LoginScreen = ({navigation}) => {
 
        const signIn=()=>{
     
-                    }
+               auth.signInWithEmailAndPassword(email,password).catch(error=>alert(error.massage))      
+    
+             }
 
     return (
         <View KeyboardAvoidingView behavior='padding' style={styles.container} >
@@ -44,7 +47,7 @@ const LoginScreen = ({navigation}) => {
                 <Input 
                 placeholder='Password' 
                 secureTextEntry type='password'
-                value={password} onChangeText={password=>setPassword(password)}/>
+                value={password} onChangeText={password=>setPassword(password)} onSubmitEditing={signIn}/>
             </View>
 
             <Button title='Login' onPress={signIn} containerStyle={styles.button}/>
