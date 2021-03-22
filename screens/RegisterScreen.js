@@ -2,34 +2,43 @@
 import { LogBox } from 'react-native';
 import React, {useLayoutEffect,useState } from 'react';
 import { StatusBar} from 'expo-status-bar'
-import{Button,Input,Image,Text}from 'react-native-elements'
-import { View,StyleSheet,KeyboardAvoidingView } from 'react-native';
+import{Button,Input,Text}from 'react-native-elements'
+import { View,StyleSheet} from 'react-native';
 import {auth}from '../firebase'
 
 // create a component
 LogBox.ignoreLogs(['Setting a timer']);
 const RegisterScreen= ({navigation}) => {
-    const[name,setName]=useState('')
-    const[email,setEmail]=useState('')
-    const[password,setPassword]=useState('')
-    const[imageUrl,setImageUrl]=useState('')
+  const[email,setEmail]=useState('')
+  const[password,setPassword]=useState('')
+  const[imageUrl,setImageUrl]=useState('')
+  const[name,setName]=useState('')
 
+   
+       
     useLayoutEffect(()=>{
          navigation.setOptions({
            headerBackTitle:'ABCS'
          })
     },[navigation])
 
+
+
+
     const register=()=>{
-      auth.createUserWithEmailAndPassword(email,password)
-      
-       //Getting back the authenticated user
+      auth
+      .createUserWithEmailAndPassword(email,password)
+         //Getting back the authenticated user
       .then((authUser)=>{
+        console.log(authUser);
+
         //updating the user authenticated user profile
+        
         authUser.user.updateProfile(
-          { displayName:name,
+            { 
+            displayName:name,
             photoURL:imageUrl ||
-             'https://upload.wikimedia.org/wikipedia/commons/5/56/Logo_Signal..png'
+            "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png"
           }
         )
        
