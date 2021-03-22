@@ -1,16 +1,15 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {StyleSheet } from 'react-native';
 import {ListItem,Avatar} from 'react-native-elements';
 // create a component
-const CustomListItem = () => {
+const CustomListItem = ({id,chatName,enterChat}) => {
     return (
         <ListItem style={styles.container}>
             <Avatar
             rounded
             source={{
-                uri:
-                "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png",
+                uri: "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png",
             }}
             />
 
