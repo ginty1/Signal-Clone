@@ -1,19 +1,17 @@
 //import liraries
-import { LogBox } from 'react-native';
 import React, {useLayoutEffect,useState } from 'react';
 import { StatusBar} from 'expo-status-bar'
 import{Button,Input,Text}from 'react-native-elements'
-import { View,StyleSheet} from 'react-native';
+import { View,StyleSheet,LogBox} from 'react-native';
 import {auth}from '../firebase'
 
 // create a component
-LogBox.ignoreLogs(['Setting a timer']);
 const RegisterScreen= ({navigation}) => {
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
   const[imageUrl,setImageUrl]=useState('')
   const[name,setName]=useState('')
-
+   
    
        
     useLayoutEffect(()=>{
