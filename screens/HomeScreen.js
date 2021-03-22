@@ -1,9 +1,34 @@
 //import liraries
-import React, { Component } from 'react';
-import { SafeAreaView, Text, StyleSheet } from 'react-native';
+import React, { useLayoutEffect } from 'react';
+import {Avatar} from 'react-native-elements';
+import { SafeAreaView, View, StyleSheet } from 'react-native';
 import CustomListItem from '../components/CustomListitem'
+import {auth,db} from '../firebase'
 // create a component
-const HomeScreen = () => {
+
+
+const HomeScreen = ({navigation}) => {
+  
+       useLayoutEffect(() => {
+           navigation.setOptions({
+              title:'Signal',
+            headerStyle:{
+                backgroundColor:'#fff'},
+                headerTitleStyle:{color:'black'},
+                headerTintColor:'black',
+                headerLeft:()=>(
+                    <View style={{marginLeft:20}}>
+                     
+                     <Avatar rounded source={{uri: auth?.currentUser?.photoURL}}/>
+
+                    </View>
+                )
+            
+                });
+               
+            }, [])
+    
+
     return (
         <SafeAreaView style={styles.container}>
          <CustomListItem/>        
