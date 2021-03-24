@@ -8,6 +8,7 @@ import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
 import AddChat from './screens/AddChat';
+import ChatScreen from './screens/ChatScreen';
 
 
 const Stack=createStackNavigator();
@@ -25,6 +26,7 @@ export default function App() {
    <Stack.Screen name='RegisterScreen' component={RegisterScreen}/>
    <Stack.Screen name='HomeScreen' component={HomeScreen}/>
    <Stack.Screen name='AddChat' component={AddChat}/>
+   <Stack.Screen name='ChatScreen' component={ChatScreen}/>
   </Stack.Navigator>
 </NavigationContainer>
   );
